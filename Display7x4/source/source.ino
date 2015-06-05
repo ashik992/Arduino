@@ -39,14 +39,7 @@ void setup() {
 
 void loop() {
     millisec = millis();
-    secs = (int) (millisec / 1000) % 61;
-
-    if(secs==60){
-        secs = 0;
-        mins++;
-        if(mins == 60)
-            mins = 0;
-    }
+    secs = (int) (millisec / 1000);
 
     displayNos((mins*100)+secs);
 }
