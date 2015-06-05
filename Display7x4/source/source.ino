@@ -13,7 +13,6 @@ unsigned int n2d = 0;
 void displayNos(int dig);
 void displayNo(int j);
 
-long int millisec;
 unsigned int mins = 0;
 unsigned int secs = 0;
 
@@ -38,9 +37,8 @@ void setup() {
 }
 
 void loop() {
-    millisec = millis();
-    secs = (int) (millisec / 1000) % 60;
-    mins = (int) (millisec / 60000) % 60;
+    secs = (int) (millis() / 1000) % 60;
+    mins = (int) (millis() / 60000) % 60;
 
     displayNos((mins*100)+secs);
 }
