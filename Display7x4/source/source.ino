@@ -48,39 +48,34 @@ void loop() {
 
 void displayNo(int j){
     for(int i=0; i<7; i++){
-        if(num[j][i])
+        if(num[j][i]){
             digitalWrite(segments[i], LOW);
-        else
+            delay(1);
             digitalWrite(segments[i], HIGH);
-
-
+        }else
+            digitalWrite(segments[i], HIGH);
     } 
 }
 
 void displayNos(int d0, int d1, int d2, int d3){
-
-    delay(4);
     digitalWrite(6, LOW);
     digitalWrite(8, LOW);
     digitalWrite(9, LOW);
     digitalWrite(12, HIGH);
     displayNo(d0);
 
-    delay(4);
     digitalWrite(6, LOW);
     digitalWrite(8, LOW);
     digitalWrite(9, HIGH);
     digitalWrite(12, LOW);
     displayNo(d1);
 
-    delay(4);  
     digitalWrite(6, LOW);
     digitalWrite(8, HIGH);
     digitalWrite(9, LOW);
     digitalWrite(12, LOW);
     displayNo(d2);
 
-    delay(4);
     digitalWrite(6, HIGH);
     digitalWrite(8, LOW);
     digitalWrite(9, LOW);
