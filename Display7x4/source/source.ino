@@ -10,8 +10,12 @@ int dp = 3;
 int lC = 0;
 int n2d = 0;
 
-void displayNos(int d0, int d1, int d2, int d3);
+void displayNos(int dig);
 void displayNo(int j);
+
+int millisecs;
+int mins;
+int hrs;
 
 int segments[7] = {11, 7, 4, 2, 1, 10, 5};
 int num[10][7] = {{1,1,1,1,1,1,0},
@@ -34,16 +38,7 @@ void setup() {
 }
 
 void loop() {
-    lC++;
-    if(lC >= 50){
-        lC=0;
-        n2d++;
-
-        if(n2d ==7)
-            n2d = 0;
-    }
-
-    displayNos(n2d, n2d+1, n2d+2, n2d+3);
+    displayNos(millis());
 }
 
 void displayNo(int j){
@@ -57,28 +52,36 @@ void displayNo(int j){
     } 
 }
 
-void displayNos(int d0, int d1, int d2, int d3){
+void displayNos(int dig){
+    int d[4] = {0};
+    int i = 0;
+
+    while(dig>0){
+        d[i++] = dig%10;
+        dig /= 10;
+    }
+
     digitalWrite(6, LOW);
     digitalWrite(8, LOW);
     digitalWrite(9, LOW);
     digitalWrite(12, HIGH);
-    displayNo(d0);
+    displayNo(d[3]);
 
     digitalWrite(6, LOW);
     digitalWrite(8, LOW);
     digitalWrite(9, HIGH);
     digitalWrite(12, LOW);
-    displayNo(d1);
+    displayNo(d[2]);
 
     digitalWrite(6, LOW);
     digitalWrite(8, HIGH);
     digitalWrite(9, LOW);
     digitalWrite(12, LOW);
-    displayNo(d2);
+    displayNo(d[1]);
 
     digitalWrite(6, HIGH);
     digitalWrite(8, LOW);
     digitalWrite(9, LOW);
     digitalWrite(12, LOW);
-    displayNo(d3);
+    displayNo(d[0]);
 }
