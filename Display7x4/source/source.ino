@@ -1,23 +1,23 @@
-int A = 11;
-int B = 7;
-int C = 4;
-int D = 2;
-int E = 1;
-int F = 10;
-int G = 5;
-int dp = 3;
+unsigned int A = 11;
+unsigned int B = 7;
+unsigned int C = 4;
+unsigned int D = 2;
+unsigned int E = 1;
+unsigned int F = 10;
+unsigned int G = 5;
+unsigned int dp = 3;
 
-int lC = 0;
-int n2d = 0;
+unsigned int lC = 0;
+unsigned int n2d = 0;
 
 void displayNos(int dig);
 void displayNo(int j);
 
 long int millisec;
-int mins = 0;
-int secs = 0;
+unsigned int mins = 0;
+unsigned int secs = 0;
 
-int segments[7] = {11, 7, 4, 2, 1, 10, 5};
+unsigned int segments[7] = {11, 7, 4, 2, 1, 10, 5};
 int num[10][7] = {{1,1,1,1,1,1,0},
     {0,1,1,0,0,0,0},
     {1,1,0,1,1,0,1},
@@ -39,7 +39,8 @@ void setup() {
 
 void loop() {
     millisec = millis();
-    secs = (int) (millisec / 1000);
+    secs = (int) (millisec / 1000) % 60;
+    mins = (int) (millisec / 60000) % 60;
 
     displayNos((mins*100)+secs);
 }
