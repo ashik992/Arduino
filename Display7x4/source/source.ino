@@ -1,14 +1,14 @@
-unsigned int A = 11;
-unsigned int B = 7;
-unsigned int C = 4;
-unsigned int D = 2;
-unsigned int E = 1;
-unsigned int F = 10;
-unsigned int G = 5;
-unsigned int dp = 3;
-
-unsigned int lC = 0;
-unsigned int n2d = 0;
+/* unsigned int A = 11; */
+/* unsigned int B = 7; */
+/* unsigned int C = 4; */
+/* unsigned int D = 2; */
+/* unsigned int E = 1; */
+/* unsigned int F = 10; */
+/* unsigned int G = 5; */
+/* unsigned int dp = 3; */
+/*  */
+/* unsigned int lC = 0; */
+/* unsigned int n2d = 0; */
 
 void displayNos(int dig);
 void displayNo(int j);
