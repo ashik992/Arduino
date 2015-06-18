@@ -1,8 +1,8 @@
-
 bool bits[4] = {0, 0, 1, 0};
 int x;
 int y;
 
+void lightUp(int x, int y, int z);
 void convertBin(int num);
 void printLed();
 
@@ -16,16 +16,16 @@ void setup() {
         digitalWrite(i, HIGH);
     }
     digitalWrite(4, LOW);
-    digitalWrite(3, LOW);
 }
 
 
 void loop() {
-    for(int i =0; i<16; i++){
-        convertBin(i);
-        printLed();
-
-        delay(5000);
+    for (int k = 0; k < 4; k++) {
+        lightUp(k, k, k);
+        digitalWrite(0, HIGH);
+        digitalWrite(1, HIGH);
+        digitalWrite(2, HIGH);
+        digitalWrite(3, HIGH);
     }
 }
 
@@ -63,8 +63,74 @@ void printLed(){
         digitalWrite(8, HIGH);
     else  
         digitalWrite(8, LOW); 
+    delay(2);
 }
 
-void lightUp(int x, y, z){
+void lightUp(int x, int y, int z){
 
+    digitalWrite(3-y, LOW);
+
+    if(x==0){
+        switch (z) {
+            case 0:
+                convertBin(3);
+                break;
+            case 1:
+                convertBin(11);
+                break;
+            case 2:
+                convertBin(7);
+                break;
+            case 3:
+                convertBin(15);
+                break;
+        }
+    }else if(x==1){
+        switch (z) {
+            case 0:
+                convertBin(1);
+                break;
+            case 1:
+                convertBin(9);
+                break;
+            case 2:
+                convertBin(5);
+                break;
+            case 3:
+                convertBin(13);
+                break;
+        }
+    }else if (x==2) {
+        switch (z) {
+            case 0:
+                convertBin(2);
+                break;
+            case 1:
+                convertBin(10);
+                break;
+            case 2:
+                convertBin(6);
+                break;
+            case 3:
+                convertBin(14);
+                break;
+        }
+    }else if (x==3) {
+        switch (z) {
+            case 0:
+                convertBin(0);
+                break;
+            case 1:
+                convertBin(8);
+                break;
+            case 2:
+                convertBin(4);
+                break;
+            case 3:
+                convertBin(12);
+                break;
+        }
+    }
+
+    printLed();
 }
