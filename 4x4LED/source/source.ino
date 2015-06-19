@@ -1,7 +1,7 @@
 bool bits[4] = {0, 0, 1, 0};
-int shape[2][8] = {{0,1,2,3,3,2,1,0}, {1,0,0,1,2,3,3,1}};
-int x;
-int y;
+int shape[2][8] = {{0,1,2,3,3,2,1,0}, {1,0,0,1,2,3,3,2}};
+int x = 0;
+int y = 0;
 
 void lightUp(int x, int y, int z);
 void printLed(bool b1, bool b2, bool b3, bool b4);
@@ -20,13 +20,18 @@ void setup() {
 
 
 void loop() {
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            for (int k = 0; k < 8; k++) {
-                lightUp(i, j, k);
-            }
-        }
+    x++;
+    if(x > 200){
+        x = 0;
+        y++;
+        if(y==8)
+            y=0;
     }
+
+        lightUp(shape[0][y], shape[1][y], 0);
+        lightUp(shape[0][y], shape[1][y], 1);
+        lightUp(shape[0][y], shape[1][y], 2);
+        lightUp(shape[0][y], shape[1][y], 3);
 }
 
 void printLed(bool b1, bool b2, bool b3, bool b4){
