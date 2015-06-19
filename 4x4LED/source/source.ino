@@ -7,13 +7,8 @@ int y = 0;
 void setup() {                
     for(int i = 0; i<9; i++){
         pinMode(i, OUTPUT);
-        digitalWrite(i, LOW);
     }
-
-    for(int i = 0; i<4; i++){
-        digitalWrite(i, HIGH);
-    }
-    digitalWrite(4, LOW);
+    digitalWrite(4, LOW); // activates the 74154
 }
 
 void loop() {
@@ -25,7 +20,7 @@ void loop() {
             y=0;
     }
 
-        lightUp(shape[0][y], shape[1][y], 0);
+        lightUp(shape[0][y], shape[1][y], 0); //this is whtere the magic happens
         lightUp(shape[0][y], shape[1][y], 1);
         lightUp(shape[0][y], shape[1][y], 2);
         lightUp(shape[0][y], shape[1][y], 3);
