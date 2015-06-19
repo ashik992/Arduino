@@ -35,6 +35,7 @@ void lightUp(int x, int y, int z){
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
 
+    
     digitalWrite(3-y, LOW);
     if(x==0){
         switch (z) {
