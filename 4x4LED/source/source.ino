@@ -18,7 +18,6 @@ void setup() {
     digitalWrite(4, LOW);
 }
 
-
 void loop() {
     x++;
     if(x > 200){
