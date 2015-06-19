@@ -12,22 +12,34 @@ void setup() {
         digitalWrite(i, LOW);
     }
     digitalWrite(4, LOW); // activates the 74154
-    i = 0;
-    j = 0;
-    k = 0;
+    i = 3;
+    j = 3;
+    k = 3;
 }
 
 void loop() {
     t++;
-    if(t > 1200){
+    if(t==1500){
         t = 0;
-        i++;
-        if(i==8)
-            i=0;
+        if(i<=0){
+            if(j>0){
+                j--;
+            }else{
+                if(k>0){
+                    k--;
+                }else{
+                    j = rand() % 4;
+                    k = rand() % 4;
+                    i=3;
+                }
+            }
+        }else
+            i--;
     }
 
-        lightUp(shape[0][i], shape[1][i], 0); //this is whtere the magic happens
-        lightUp(shape[0][i], shape[1][i], 1);
-        lightUp(shape[0][i], shape[1][i], 2);
-        lightUp(shape[0][i], shape[1][i], 3);
+    if (t<500){
+        if(t%5)
+            lightUp(j, i+1, k); //this is whtere the magic happens
+    }
+    lightUp(j, i, k); //this is whtere the magic happens
 }
